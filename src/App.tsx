@@ -40,7 +40,7 @@ const App = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollTo = (id) => {
+  const scrollTo = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
@@ -252,7 +252,7 @@ const App = () => {
 
 // Helper Components
 
-const LanguageBar = ({ lang, level, percent, color }) => (
+const LanguageBar = ({ lang, level, percent, color }: { lang: string; level: string; percent: number; color: string }) => (
   <div>
     <div className="flex justify-between mb-2">
       <span className="font-medium text-slate-200">{lang}</span>
@@ -267,7 +267,7 @@ const LanguageBar = ({ lang, level, percent, color }) => (
   </div>
 );
 
-const SkillCard = ({ icon, title, desc, color }) => (
+const SkillCard = ({ icon, title, desc, color }: { icon: React.ReactNode; title: string; desc: string; color: string }) => (
   <div className="bg-slate-800/40 p-6 rounded-xl border border-slate-700 hover:border-teal-500/50 transition-all hover:-translate-y-1 group text-center flex flex-col items-center">
     <div className={`mb-4 p-3 rounded-full bg-slate-900 ${color} group-hover:scale-110 transition-transform`}>
       {icon}
