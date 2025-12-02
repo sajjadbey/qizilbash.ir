@@ -156,11 +156,15 @@ const App = () => {
                 <div className="grid grid-cols-2 gap-4">
                   <div className="bg-slate-950/50 p-4 rounded-lg border-l-4 border-teal-500">
                     <p className="text-xs text-slate-400 uppercase tracking-wider mb-1">Paternal (Y-DNA)</p>
-                    <p className="text-2xl font-mono font-bold text-teal-300">Q-L245</p>
+                    <a href="https://discover.familytreedna.com/y-dna/Q-L245/story" target="_blank" rel="noopener noreferrer">
+                      <p className="text-2xl font-mono font-bold text-teal-300">Q-L245</p>
+                    </a>
                   </div>
                   <div className="bg-slate-950/50 p-4 rounded-lg border-l-4 border-red-500">
                     <p className="text-xs text-slate-400 uppercase tracking-wider mb-1">Maternal (mtDNA)</p>
-                    <p className="text-2xl font-mono font-bold text-red-300">J1b5</p>
+                    <a href="https://discover.familytreedna.com/mtdna/J1b5/story" target="_blank" rel="noopener noreferrer">
+                      <p className="text-2xl font-mono font-bold text-red-300">J1b5</p>
+                    </a>
                   </div>
                 </div>
               </div>
