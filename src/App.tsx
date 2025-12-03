@@ -223,8 +223,8 @@ const App = () => {
             <ProjectCard
               icon={<NotebookText size={32} />}
               title="Azerbaijani Language Tools"
-              desc="A suite of tools for Azerbaijani language, including a Latin-to-Arabic script converter and an Old Turkic alphabet generator."
-              tags={['Next.js', 'TypeScript', 'Tailwind CSS', 'i18n']}
+              desc="A suite of tools for Azerbaijani language, including a Dictionary Latin-to-Arabic script converter and an Old Turkic alphabet generator."
+              tags={['Django', 'React', 'Tailwind CSS', 'PostgreSQL']}
               link="https://qizilbash.ir/tools/"
             />
             <ProjectCard
