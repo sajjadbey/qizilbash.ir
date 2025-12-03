@@ -227,7 +227,7 @@ const App = () => {
                   <LanguageBar lang="Azerbaijani" level="Native" percent={100} color="bg-teal-500" />
                   <LanguageBar lang="Persian" level="Fluent" percent={95} color="bg-teal-600" />
                   <LanguageBar lang="Turkish" level="Fluent" percent={90} color="bg-red-500" />
-                  <LanguageBar lang="English" level="Fluent" percent={85} color="bg-blue-500" />
+                  <LanguageBar lang="English" level="Intermediate" percent={65} color="bg-orange-500" />
                   <LanguageBar lang="Arabic" level="Intermediate" percent={50} color="bg-yellow-600" />
                 </div>
               </div>
