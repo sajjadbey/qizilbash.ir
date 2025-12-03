@@ -7,7 +7,6 @@ import {
   Code2, 
   Mail, 
   Send, 
-  Globe, 
   ChevronDown,
   ExternalLink,
   Terminal,
