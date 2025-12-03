@@ -224,11 +224,11 @@ const App = () => {
                   <Languages className="text-red-500" /> Languages
                 </h3>
                 <div className="space-y-6">
-                  <LanguageBar lang="Azerbaijani" level="Native" percent={100} color="bg-teal-500" />
+                  <LanguageBar lang="Azerbaijani" level="Native" percent={100} color="bg-blue-500" />
                   <LanguageBar lang="Persian" level="Fluent" percent={95} color="bg-teal-600" />
-                  <LanguageBar lang="Turkish" level="Fluent" percent={90} color="bg-red-500" />
+                  <LanguageBar lang="Turkish" level="Fluent" percent={90} color="bg-yellow-500" />
                   <LanguageBar lang="English" level="Intermediate" percent={65} color="bg-orange-500" />
-                  <LanguageBar lang="Arabic" level="Intermediate" percent={50} color="bg-yellow-600" />
+                  <LanguageBar lang="Arabic" level="Intermediate" percent={50} color="bg-red-600" />
                 </div>
               </div>
             </div>
