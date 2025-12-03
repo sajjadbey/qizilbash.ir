@@ -11,10 +11,13 @@ import {
   ChevronDown,
   ExternalLink,
   Terminal,
-  Cpu
+  Cpu,
+  NotebookText, // New Icon for Projects
+  ScrollText, // New Icon for Project Detail
 } from 'lucide-react';
 
 const App = () => {
+  // Added 'projects' to the state
   const [activeSection, setActiveSection] = useState('home');
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -23,11 +26,12 @@ const App = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
       
-      // Update active section based on scroll position
-      const sections = ['home', 'about', 'skills', 'contact'];
+      // Updated sections list to include 'projects'
+      const sections = ['home', 'about', 'skills', 'projects', 'contact'];
       const current = sections.find(section => {
         const element = document.getElementById(section);
         if (element) {
+          // Check if the section is visible in the top part of the viewport
           const rect = element.getBoundingClientRect();
           return rect.top >= 0 && rect.top <= 300;
         }
@@ -72,8 +76,9 @@ const App = () => {
           <div className="text-2xl font-bold tracking-tighter text-teal-400">
             QIZILBASH<span className="text-red-500">.IR</span>
           </div>
+          {/* Updated Navigation Links */}
           <div className="hidden md:flex space-x-8 text-sm font-medium">
-            {['Home', 'About', 'Skills', 'Contact'].map((item) => (
+            {['Home', 'About', 'Skills', 'Projects', 'Contact'].map((item) => (
               <button
                 key={item}
                 onClick={() => scrollTo(item.toLowerCase())}
@@ -104,8 +109,8 @@ const App = () => {
             <button onClick={() => scrollTo('contact')} className="group relative px-8 py-3 bg-teal-600 hover:bg-teal-500 text-white font-semibold rounded-lg transition-all shadow-[0_0_20px_rgba(20,184,166,0.3)] hover:shadow-[0_0_30px_rgba(20,184,166,0.5)]">
               Contact Me
             </button>
-            <button onClick={() => scrollTo('about')} className="px-8 py-3 border border-slate-600 hover:border-teal-500/50 text-slate-300 hover:text-teal-400 rounded-lg transition-all bg-slate-800/50 hover:bg-slate-800">
-              Explore Profile
+            <button onClick={() => scrollTo('projects')} className="px-8 py-3 border border-slate-600 hover:border-teal-500/50 text-slate-300 hover:text-teal-400 rounded-lg transition-all bg-slate-800/50 hover:bg-slate-800">
+              View Projects
             </button>
           </div>
 
@@ -190,7 +195,7 @@ const App = () => {
       </section>
 
       {/* Technical Skills */}
-      <section id="skills" className="relative z-10 py-24">
+      <section id="skills" className="relative z-10 py-24 bg-slate-900/40">
         <div className="max-w-6xl mx-auto px-6">
            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
             Technical Arsenal
@@ -205,7 +210,34 @@ const App = () => {
           </div>
         </div>
       </section>
+      
+      {/* Projects Section - NEW */}
+      <section id="projects" className="relative z-10 py-24 bg-slate-800/30">
+        <div className="max-w-6xl mx-auto px-6">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
+            <span className="border-b-4 border-teal-500 pb-2">Featured Works</span>
+          </h2>
+          <p className="text-center text-slate-400 mb-16">Bringing ideas to life with code and cultural passion.</p>
 
+          <div className="grid md:grid-cols-2 gap-10">
+            <ProjectCard
+              icon={<NotebookText size={32} />}
+              title="Azerbaijani Language Tools"
+              desc="A suite of tools for Azerbaijani language, including a Latin-to-Arabic script converter and an Old Turkic alphabet generator."
+              tags={['Next.js', 'TypeScript', 'Tailwind CSS', 'i18n']}
+              link="https://qizilbash.ir/tools/"
+            />
+            <ProjectCard
+              icon={<ScrollText size={32} />}
+              title="E-Book Generation Platform"
+              desc="A proprietary platform for converting raw text into clean, multi-format (EPUB/PDF) e-books, focused on speed and quality."
+              tags={['Node.js', 'API', 'Docker', 'React']}
+              link="#" // Placeholder for no external link
+            />
+          </div>
+        </div>
+      </section>
+      
       {/* Contact Section */}
       <section id="contact" className="relative z-10 py-24 bg-gradient-to-t from-slate-900 via-slate-800/40 to-slate-900">
         <div className="max-w-3xl mx-auto px-6 text-center">
@@ -254,7 +286,7 @@ const App = () => {
   );
 };
 
-// Helper Components
+// Helper Components (Original)
 
 const LanguageBar = ({ lang, level, percent, color }: { lang: string; level: string; percent: number; color: string }) => (
   <div>
@@ -280,5 +312,52 @@ const SkillCard = ({ icon, title, desc, color }: { icon: React.ReactNode; title:
     <p className="text-sm text-slate-500">{desc}</p>
   </div>
 );
+
+// Helper Components (NEW ProjectCard)
+
+interface ProjectCardProps {
+  icon: React.ReactNode;
+  title: string;
+  desc: string;
+  tags: string[];
+  link: string;
+}
+
+const ProjectCard = ({ icon, title, desc, tags, link }: ProjectCardProps) => (
+  <div className="bg-slate-900/60 p-8 rounded-2xl border border-red-500/20 hover:border-teal-500/50 transition-all shadow-xl flex flex-col justify-between">
+    <div className="flex items-start gap-4 mb-4">
+      <div className="text-red-500 flex-shrink-0 mt-1">
+        {icon}
+      </div>
+      <div>
+        <h3 className="text-2xl font-bold text-teal-300 mb-2">{title}</h3>
+        <p className="text-slate-400 leading-relaxed">{desc}</p>
+      </div>
+    </div>
+
+    {/* Tags */}
+    <div className="flex flex-wrap gap-2 my-4">
+      {tags.map((tag) => (
+        <span key={tag} className="px-3 py-1 text-xs font-medium bg-slate-800 text-teal-400 rounded-full border border-teal-500/30">
+          {tag}
+        </span>
+      ))}
+    </div>
+
+    {/* Link Button */}
+    {link && (
+      <a 
+        href={link} 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        className="mt-4 self-start flex items-center gap-2 text-sm font-semibold text-red-400 hover:text-red-300 transition-colors"
+      >
+        View Project
+        <ExternalLink size={16} />
+      </a>
+    )}
+  </div>
+);
+
 
 export default App;
