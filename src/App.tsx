@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { IranFlagIcon, AzerbaijaniFlagIcon, TurkishFlagIcon, BritishFlagIcon, SaudiFlagIcon } from './flags/Flags';
 import { 
   MapPin, 
   Calendar, 
@@ -139,54 +140,11 @@ const App = () => {
                     <span>20 Years Old (Born Oct 8, 2005)</span>
                   </li>
                   <li className="flex items-center gap-3">
-                    <svg width={18} height={18} fill="none" viewBox="0 0 24 24">
-                      <g clipPath="url(#IR_svg__a)">
-                          <path d="M12 24c6.627 0 12-5.373 12-12S18.627 0 12 0 0 5.373 0 12s5.373 12 12 12Z" fill="#F0F0F0" />
-                          <path
-                              d="M15.898 8.87h-1.57c.013.172.02.346.02.521 0 1.161-.29 2.286-.796 3.087-.156.247-.418.596-.77.831V8.87h-1.565v4.44c-.35-.235-.613-.584-.769-.83-.506-.802-.796-1.927-.796-3.088 0-.175.008-.349.02-.521h-1.57c-.01.171-.015.345-.015.521 0 3.219 1.719 5.74 3.913 5.74s3.913-2.521 3.913-5.74c0-.176-.005-.35-.015-.521Z"
-                              fill="#D80027"
-                          />
-                          <path
-                              d="M4.957 5.738h1.565v1.044h1.566V5.738h1.565v1.044h1.565V5.738h1.565v1.044h1.565V5.738h1.566v1.044h1.565V5.738h1.565v1.044h3.766A12 12 0 0 0 12-.001 12 12 0 0 0 1.192 6.782h3.766V5.738Z"
-                              fill="#6DA544"
-                          />
-                          <path
-                              d="M19.044 17.217v1.044H17.48v-1.044h-1.565v1.044H14.35v-1.044h-1.566v1.044h-1.565v-1.044H9.653v1.044H8.088v-1.044H6.522v1.044H4.957v-1.044H1.191A12 12 0 0 0 12.001 24a12 12 0 0 0 10.809-6.783h-3.766Z"
-                              fill="#D80027"
-                          />
-                      </g>
-                      <defs>
-                          <clipPath id="IR_svg__a">
-                              <path fill="#fff" d="M0 0h24v24H0z" />
-                          </clipPath>
-                      </defs>
-                    </svg>
+                    <IranFlagIcon size={18} />
                     <span>East Azerbaijan, Tabriz, Iran</span>
                   </li>
                   <li className="flex items-center gap-3">
-                    <svg width={18} height={18} fill="none" viewBox="0 0 24 24">
-                      <g clipPath="url(#AZ_svg__a)">
-                          <path
-                              d="M24 12c0-1.468-.264-2.874-.746-4.174L12 7.304.746 7.826A11.975 11.975 0 0 0 0 12c0 1.468.264 2.874.746 4.174L12 16.696l11.254-.522c.482-1.3.746-2.706.746-4.174Z"
-                              fill="#D80027"
-                          />
-                          <path d="M12 24c5.16 0 9.559-3.257 11.254-7.826H.747C2.443 20.744 6.841 24 12.001 24Z" fill="#6DA544" />
-                          <path d="M.747 7.825h22.507C21.56 3.255 17.16 0 12.001 0 6.84-.001 2.443 3.256.747 7.825Z" fill="#338AF3" />
-                          <path
-                              d="M12.26 15.391a3.391 3.391 0 1 1 1.614-6.375 4.174 4.174 0 1 0 0 5.967c-.48.26-1.03.408-1.613.408Z"
-                              fill="#F0F0F0"
-                          />
-                          <path
-                              d="m14.87 9.65.449 1.264 1.21-.576-.575 1.211 1.263.45-1.263.449.575 1.21-1.21-.575-.45 1.263-.449-1.263-1.21.576.575-1.211-1.264-.45 1.264-.449-.576-1.21 1.211.575.45-1.263Z"
-                              fill="#F0F0F0"
-                          />
-                      </g>
-                      <defs>
-                          <clipPath id="AZ_svg__a">
-                              <path fill="#fff" d="M0 0h24v24H0z" />
-                          </clipPath>
-                      </defs>
-                    </svg>
+                    <AzerbaijaniFlagIcon size={18} />
                     <span>Azerbaijani Turk</span>
                   </li>
                 </ul>
@@ -224,11 +182,11 @@ const App = () => {
                   <Languages className="text-red-500" /> Languages
                 </h3>
                 <div className="space-y-6">
-                  <LanguageBar lang="Azerbaijani" level="Native" percent={100} color="bg-blue-500" />
-                  <LanguageBar lang="Persian" level="Fluent" percent={95} color="bg-teal-600" />
-                  <LanguageBar lang="Turkish" level="Fluent" percent={90} color="bg-yellow-500" />
-                  <LanguageBar lang="English" level="Intermediate" percent={65} color="bg-orange-500" />
-                  <LanguageBar lang="Arabic" level="Intermediate" percent={50} color="bg-red-600" />
+                  <LanguageBar lang="Azerbaijani" level="Native" percent={100} color="bg-blue-500" FlagComponent={<AzerbaijaniFlagIcon size={20} />} />
+                  <LanguageBar lang="Persian" level="Fluent" percent={95} color="bg-teal-600" FlagComponent={<IranFlagIcon size={20} />} />
+                  <LanguageBar lang="Turkish" level="Fluent" percent={90} color="bg-yellow-500" FlagComponent={<TurkishFlagIcon size={20} />} />
+                  <LanguageBar lang="English" level="Intermediate" percent={65} color="bg-orange-500" FlagComponent={<BritishFlagIcon size={20} />} />
+                  <LanguageBar lang="Arabic" level="Intermediate" percent={50} color="bg-red-600" FlagComponent={<SaudiFlagIcon size={20} />} />
                 </div>
               </div>
             </div>
@@ -330,10 +288,22 @@ const App = () => {
 
 // Helper Components (Original)
 
-const LanguageBar = ({ lang, level, percent, color }: { lang: string; level: string; percent: number; color: string }) => (
+interface LanguageBarProps { 
+    lang: string; 
+    level: string; 
+    percent: number; 
+    color: string;
+    FlagComponent?: React.ReactNode; // NEW PROP
+}
+
+const LanguageBar = ({ lang, level, percent, color, FlagComponent }: LanguageBarProps) => (
   <div>
-    <div className="flex justify-between mb-2">
-      <span className="font-medium text-slate-200">{lang}</span>
+    <div className="flex justify-between mb-2 items-center">
+      {/* Container for Flag and Language Name */}
+      <div className="flex items-center gap-3">
+          {FlagComponent} {/* Render the flag */}
+          <span className="font-medium text-slate-200">{lang}</span>
+      </div>
       <span className="text-xs text-slate-400 bg-slate-800 px-2 py-1 rounded">{level}</span>
     </div>
     <div className="w-full bg-slate-800 rounded-full h-2.5 overflow-hidden">
