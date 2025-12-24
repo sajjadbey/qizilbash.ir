@@ -1,1 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,700;1,800&family=Raleway:wght@200;300;400;500;600;700&display=swap');
+
 @import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-frost: #DFFFFD;
+    --color-silver: #C0C0C0;
+    --color-icy-blue: #AFDBF5;
+    --color-frosted-blue: #A4DDED;
+    --color-gold: #FFD700;
+    --color-deep-blue: #0A1929;
+    --color-midnight: #0D1B2A;
+    --color-ice-white: #F0FFFF;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Raleway', sans-serif;
+    background: var(--color-deep-blue);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+@utility glass-effect {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@utility glass-hover {
+  &:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(175, 219, 245, 0.3);
+  }
+}
+
+@utility animate-snowfall {
+  animation: snowfall linear infinite;
+}
+
+@utility animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@utility animate-sparkle {
+  animation: sparkle 2s ease-in-out infinite;
+}
+
+@utility animate-glow {
+  animation: glow 3s ease-in-out infinite;
+}
+
+@keyframes snowfall {
+  0% {
+    transform: translateY(-10vh) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(110vh) translateX(100px);
+    opacity: 0;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes sparkle {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.3;
+    transform: scale(1.2);
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    filter: drop-shadow(0 0 10px rgba(175, 219, 245, 0.5));
+  }
+  50% {
+    filter: drop-shadow(0 0 20px rgba(175, 219, 245, 0.8));
+  }
+}
