@@ -12,8 +12,6 @@ import {
   ExternalLink,
   Terminal,
   Cpu,
-  NotebookText,
-  ScrollText,
   Snowflake,
   TreePine,
   Gift,
@@ -449,50 +447,6 @@ const SkillCard = ({ icon, title, desc, color }: { icon: React.ReactNode; title:
     </div>
     <h3 className="text-lg font-bold text-slate-200 mb-1">{title}</h3>
     <p className="text-sm text-slate-400">{desc}</p>
-  </div>
-);
-
-interface ProjectCardProps {
-  icon: React.ReactNode;
-  title: string;
-  desc: string;
-  tags: string[];
-  link: string;
-}
-
-const ProjectCard = ({ icon, title, desc, tags, link }: ProjectCardProps) => (
-  <div className="glass-effect glass-hover p-8 rounded-3xl transition-all shadow-xl flex flex-col justify-between hover:scale-105 group">
-    <div className="flex items-start gap-4 mb-4">
-      <div className="text-[#FFD700] flex-shrink-0 mt-1 group-hover:scale-110 transition-transform">
-        {icon}
-      </div>
-      <div>
-        <h3 className="text-2xl font-bold text-[#AFDBF5] mb-2">{title}</h3>
-        <p className="text-slate-300 leading-relaxed">{desc}</p>
-      </div>
-    </div>
-
-    {/* Tags */}
-    <div className="flex flex-wrap gap-2 my-4">
-      {tags.map((tag) => (
-        <span key={tag} className="px-3 py-1 text-xs font-medium bg-white/5 text-[#AFDBF5] rounded-full border border-[#AFDBF5]/30">
-          {tag}
-        </span>
-      ))}
-    </div>
-
-    {/* Link Button */}
-    {link && link !== '#' && (
-      <a 
-        href={link} 
-        target="_blank" 
-        rel="noopener noreferrer" 
-        className="mt-4 self-start flex items-center gap-2 text-sm font-semibold text-[#FFD700] hover:text-[#AFDBF5] transition-colors group-hover:translate-x-2"
-      >
-        View Project
-        <ExternalLink size={16} />
-      </a>
-    )}
   </div>
 );
 
